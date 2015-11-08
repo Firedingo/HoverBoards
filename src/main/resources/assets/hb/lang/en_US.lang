@@ -1,0 +1,7 @@
+#Creative Tabs
+itemGroup.hb= HoverBoards
+
+#Items
+item.hb:ItemUnchargedCrystal.name=UnCharged Power Crystal
+item.hb:ItemPolishedCrystal.name=Polished Power Crystal
+item.hb:ItemTierOneHB.name=Tier One HoverBoard

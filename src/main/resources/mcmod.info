@@ -1,0 +1,21 @@
+[
+{
+"modid": "hb",
+"name": "HoverBoards",
+"description": "Fly Around On A HoverBoard, Just Like The ones you see in the magazines. :)",
+"version": "1.0.0",
+"mcversion": "1.7.10",
+"url": "",
+"updateUrl": "",
+"authorList": [
+"firedingo"
+],
+"credits": "",
+"logoFile": "",
+"screenshots": [
+],
+"parent":"",
+"dependencies": [
+]
+}
+]
