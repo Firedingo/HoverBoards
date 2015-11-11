@@ -42,7 +42,7 @@ public class ItemTierOneHB extends ItemHB {
             System.out.print(" onItemRightClick Called");
         }
         System.out.print(" onItemRightClick 2nd Output Called");
-        return stack;
+        return super.onItemRightClick(stack, world, player);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class ItemTierOneHB extends ItemHB {
             spawnEntity(stack, player, world);
             System.out.print(" onItemUse Called");
         }
-        return true;
+        return super.onItemUse(stack, player, world, posX, posY, posZ, par7, par8, par9, par10);
     }
 
     @Override
