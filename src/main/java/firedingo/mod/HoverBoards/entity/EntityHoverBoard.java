@@ -163,7 +163,7 @@ public class EntityHoverBoard extends EntityCreature {
             interact(player);
         }
         else {
-            System.out.println("HB: Code Is Running On The Server");
+           // System.out.println("HB: Code Is Running On The Server");
         }
 
         super.onUpdate();
@@ -173,6 +173,8 @@ public class EntityHoverBoard extends EntityCreature {
             this.updateLeashedState();
         }
     }
+
+
 
     @Override
     public void moveEntity(double x, double y, double z) {
@@ -280,43 +282,6 @@ public class EntityHoverBoard extends EntityCreature {
         }
     }
 
-    @Override
-    //may not need this as it is found in EntityPlayer
-    public void mountEntity(Entity entity) {
-        System.out.println("Mount Entity Method Called");
-        if (entity == null)
-        {
-            if (this.ridingEntity != null)
-            {
-                this.setLocationAndAngles(this.ridingEntity.posX, this.ridingEntity.boundingBox.minY + (double)this.ridingEntity.height, this.ridingEntity.posZ, this.rotationYaw, this.rotationPitch);
-                this.ridingEntity.riddenByEntity = null;
-            }
-
-            this.ridingEntity = null;
-        }
-        else
-        {
-            if (this.ridingEntity != null)
-            {
-                this.ridingEntity.riddenByEntity = null;
-            }
-
-            if (entity != null)
-            {
-                for (Entity entity1 = entity.ridingEntity; entity1 != null; entity1 = entity1.ridingEntity)
-                {
-                    if (entity1 == this)
-                    {
-                        return;
-                    }
-                }
-            }
-
-            this.ridingEntity = entity;
-            entity.riddenByEntity = this;
-        }
-        System.out.println("Mount Entity Method Ended");
-    }
 
     @Override
     public boolean doesEntityNotTriggerPressurePlate() {
