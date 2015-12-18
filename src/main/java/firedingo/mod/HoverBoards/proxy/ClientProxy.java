@@ -11,12 +11,10 @@ import net.minecraft.util.ResourceLocation;
  */
 public class ClientProxy extends CommonProxy {
 
-    public static void InitRendering() {
+    @Override
+    public void InitRendering() {
        // RenderingRegistry.registerEntityRenderingHandler(EntityHoverBoard.class, new RenderHoverBoard(HBModel, 0.5F));
         EntityHandler.registerRenderers();
     }
-    public static void InitEntities() {
-        EntityHandler.registerEntities();
 
-    }
 }

@@ -6,9 +6,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
  * Created by Firedingo on 30/05/2015.
  */
 public class ModItems {
-    public static final ItemHB ItemUnchargedCrystal = new ItemUnchargedCrystal();
-    public static final ItemHB ItemPolishedCrystal = new ItemPolishedCrystal();
-    public static final ItemHB ItemHoverBoard = new ItemTierOneHB();
+    public static final HBCommon ItemUnchargedCrystal = new ItemUnchargedCrystal();
+    public static final HBCommon ItemPolishedCrystal = new ItemPolishedCrystal();
+    public static final HBCommon ItemHoverBoard = new ItemTierOneHB();
 
     public static void Init() {
         GameRegistry.registerItem(ItemUnchargedCrystal, "ItemUnchargedCrystal");

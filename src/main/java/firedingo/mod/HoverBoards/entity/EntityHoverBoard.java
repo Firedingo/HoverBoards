@@ -50,13 +50,17 @@ public class EntityHoverBoard extends EntityCreature {
         this.getCollisionBox(this);
         this.ridingEntity = null;
         this.riddenByEntity = null;
-        this.setHealth(10F);
+        this.setHealth(0.5F);
         this.speedMultiplier = 0.07D;
         this.getBrightness(0.2F);
 
+
     }
 
-
+    @Override
+    public boolean shouldRiderSit() {
+        return false;
+    }
 
     @Override
     public void dismountEntity(Entity p_110145_1_) {
@@ -73,16 +77,32 @@ public class EntityHoverBoard extends EntityCreature {
 
     @Override
     protected void damageEntity(DamageSource damageSource, float amount) {
+       /* if (damageSource == DamageSource.generic) {
+            if (this.prevHealth > 0) {
+              //  this.setHealth(this.prevHealth / 2);
+                this.setHealth(this.prevHealth - amount);
+            }
+        } */
+
         this.setHealth(this.prevHealth - amount);
         super.damageEntity(damageSource, amount);
     }
 
     @Override
     public void setDead() {
-        if (this.getHealth() == 0) {
+        /*
+        if (this.getHealth() <= 0) {
             super.setDead();
-        }
 
+        }
+        */
+
+    }
+
+    @Override
+    public double getMountedYOffset() {
+        return this.height + 0.5;
+       // return super.getMountedYOffset();
     }
 
     protected boolean isMovementCeased()
@@ -153,33 +173,24 @@ public class EntityHoverBoard extends EntityCreature {
 
     @Override
     public void onUpdate() {
-        EntityPlayer player;
-
-        //player.interactWith(this);
-
-        player = Minecraft.getMinecraft().thePlayer;
-
-        if (FMLCommonHandler.instance().getEffectiveSide() == Side.CLIENT){
-            interact(player);
+        /*
+        if (this.posX != this.prevPosX || this.posY != this.prevPosY || this.posZ != this.prevPosZ) {
+            //super.posX super.prevPosX super.serverPosX
+            this.setPositionAndUpdate(this.posX, this.posY, this.posZ);
+            this.setPosition(this.posX, this.posY, this.posZ);
         }
-        else {
-           // System.out.println("HB: Code Is Running On The Server");
+        if (this.rotationYaw != this.prevRotationYaw || this.rotationPitch != this.prevRotationPitch) {
+            this.setRotation(this.rotationYaw, this.rotationPitch);
         }
-
-        super.onUpdate();
-
-        if (!this.worldObj.isRemote)
-        {
-            this.updateLeashedState();
-        }
+        */
     }
 
 
 
     @Override
     public void moveEntity(double x, double y, double z) {
-
-        if (this.posX != x && this.posY != y && this.posZ != z) {
+        if (this.prevPosX != x && this.prevPosY != y && this.prevPosZ != z) {
+            this.posX = x; this.posY = y; this.posZ = z;
             super.moveEntity(x, y, z);
         }
 
@@ -197,6 +208,7 @@ public class EntityHoverBoard extends EntityCreature {
     }
     public void applyEntityCollision(Entity entity)
     {
+        /*
         if (entity.riddenByEntity != this && entity.ridingEntity != this)
         {
             double d0 = entity.posX - this.posX - 1;
@@ -225,6 +237,7 @@ public class EntityHoverBoard extends EntityCreature {
                 entity.addVelocity(d0, 0.0D, d1);
             }
         }
+        */
     }
 
     @Override
@@ -275,6 +288,10 @@ public class EntityHoverBoard extends EntityCreature {
         {
             if (!this.worldObj.isRemote)
             {
+              /*  if () {
+                    super.shouldRiderSit();
+                    player.mountEntity(this);
+                } */
                 player.mountEntity(this);
             }
 
@@ -290,17 +307,29 @@ public class EntityHoverBoard extends EntityCreature {
 
     @Override
     public void onDeath(DamageSource p_70645_1_) {
-        super.onDeath(p_70645_1_);
+        /*
+       // ItemStack stack = Itemstack(ModItems.ItemHoverBoard);
+       // stack.getItem();
+        if (this.getHealth() <= 0) {
+            entityDropItem(new ItemStack(ModItems.ItemHoverBoard), 0.5F);
+        }
+       // super.onDeath(p_70645_1_);
+       */
     }
+
+
 
     @Override
     public EntityItem entityDropItem(ItemStack stack, float shadow) {
-        if (isDead == true) {
+       /*
+        // if (isDead == true) {
             //stack = something;
-            stack.getItem();
-            return super.entityDropItem(stack, 0.5F);
+            //stack.getItem();
+            return super.entityDropItem(stack, shadow);
           //  return super.entityDropItem(stack, p_70099_2_);
-        }
-        return null;
+        //}
+       // return super.entityDropItem(stack, 0F);
+       */
+        return super.entityDropItem(stack, shadow);
     }
 }

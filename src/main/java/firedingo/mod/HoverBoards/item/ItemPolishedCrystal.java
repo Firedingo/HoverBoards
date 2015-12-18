@@ -6,7 +6,7 @@ import firedingo.mod.HoverBoards.reference.Textures;
 /**
  * Created by Firedingo on 3/10/2015.
  */
-public class ItemPolishedCrystal extends ItemHB {
+public class ItemPolishedCrystal extends HBCommon {
 
     //Constructor
     public ItemPolishedCrystal() {

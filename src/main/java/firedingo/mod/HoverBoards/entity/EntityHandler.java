@@ -2,6 +2,7 @@ package firedingo.mod.HoverBoards.entity;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import firedingo.mod.HoverBoards.HoverBoards;
 import firedingo.mod.HoverBoards.renderer.model.Hoverboard;
 import firedingo.mod.HoverBoards.renderer.RenderHoverBoard;
 
@@ -14,5 +15,6 @@ public class EntityHandler {
     }
     public static void registerEntities() {
         EntityRegistry.registerGlobalEntityID(EntityHoverBoard.class, "EntityHoverBoard", EntityRegistry.findGlobalUniqueEntityId());
+        EntityRegistry.registerModEntity(EntityHoverBoard.class, "EntityHoverBoard", 1, HoverBoards.instance, 80, 3, true);
     }
 }

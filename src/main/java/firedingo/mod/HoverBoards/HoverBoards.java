@@ -33,8 +33,8 @@ public class HoverBoards {
     @Mod.EventHandler
     public static void Init(FMLInitializationEvent event) {
         Recipes.Init();
-        ClientProxy.InitEntities();
-        ClientProxy.InitRendering();
+        proxy.InitRendering();
+        proxy.InitEntities();
     }
     @Mod.EventHandler
     public static void PostInit(FMLPostInitializationEvent event) {
