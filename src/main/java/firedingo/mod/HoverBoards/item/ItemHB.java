@@ -3,6 +3,7 @@ package firedingo.mod.HoverBoards.item;
 import firedingo.mod.HoverBoards.entity.EntityHoverBoard;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 /**
@@ -16,8 +17,12 @@ public class ItemHB extends HBCommon {
     public static void spawnEntity(ItemStack stack, EntityPlayer player, World world) {
 
         EntityHoverBoard HB = new EntityHoverBoard(world);
-       // HB.setPosition();
-        HB.setPosition(player.posX + 1, player.posY + 1, player.posZ + 1);
+
+        double x = player.getLookVec().xCoord;
+        double y = player.getLookVec().yCoord;
+        double z = player.getLookVec().zCoord;
+       // System.out.println("X: " + x + " Y: " + y + " Z: " + z); //For Testing
+        HB.setPosition(player.posX + (x+ 1D),player.posY + (y + 1D),player.posZ + (z+ 1D)); //+1D is used to raise the spawn location out of the blocks below the player if any
         world.spawnEntityInWorld(HB);
         if (!player.capabilities.isCreativeMode) {
             stack.stackSize--;

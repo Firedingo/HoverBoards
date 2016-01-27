@@ -10,20 +10,21 @@ import net.minecraft.util.IIcon;
 public class BlockCharger extends BlockHB {
     private IIcon[] icons = new IIcon[6];
     public String name = "BlockCharger";
+    private String side = "";
     public BlockCharger() {
         super();
         this.setBlockName(Reference.MOD_ID + ":" + name);
 
     }
 
-    @Override //0 = top/bottom, 1 = top/bottom, 2 = front, 3 = side, 4 = side, 5 = side
+    @Override //0 = bottom, 1 = top, 2 = front, 3 = side, 4 = side, 5 = side
     public void registerBlockIcons(IIconRegister iconRegister) {
         super.registerBlockIcons(iconRegister);
-    }
 
-    /* for(int i=0; i < 6; i++) {
+
+     for(int i=0; i < 6; i++) {
             if (i == 0) {
-                side = "_top";
+                side = "_bottom";
             }
             else if (i == 1) {
                 side = "_top";
@@ -36,7 +37,7 @@ public class BlockCharger extends BlockHB {
                 side = "_side";
             }
             else if (i == 4) {
-               // side = "_front_on";
+              // side = "_front_on";
                 side = "_side";
             }
             else if (i == 5) {
@@ -48,5 +49,5 @@ public class BlockCharger extends BlockHB {
     @Override
     public IIcon getIcon(int side, int meta) {
         return icons[side];
-    } */
+    }
 }

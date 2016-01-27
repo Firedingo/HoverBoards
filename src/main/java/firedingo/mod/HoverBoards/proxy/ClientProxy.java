@@ -1,6 +1,8 @@
 package firedingo.mod.HoverBoards.proxy;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
+import firedingo.mod.HoverBoards.KeyHandler;
 import firedingo.mod.HoverBoards.entity.EntityHandler;
 import firedingo.mod.HoverBoards.renderer.RenderHoverBoard;
 import firedingo.mod.HoverBoards.entity.EntityHoverBoard;
@@ -17,4 +19,8 @@ public class ClientProxy extends CommonProxy {
         EntityHandler.registerRenderers();
     }
 
+    @Override
+    public void InitKeyHandler() {
+
+    }
 }

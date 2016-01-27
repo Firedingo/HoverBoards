@@ -1,5 +1,6 @@
 package firedingo.mod.HoverBoards;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -28,6 +29,8 @@ public class HoverBoards {
     public static void PreInit(FMLPreInitializationEvent event) {
         ModItems.Init();
         ModBlocks.Init();
+        proxy.InitKeyHandler();
+
 
     }
     @Mod.EventHandler

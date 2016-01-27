@@ -10,4 +10,7 @@ import net.minecraft.world.World;
  */
 public class ServerProxy extends CommonProxy {
 
+    @Override
+    public void InitKeyHandler() {
+    }
 }
